@@ -1,0 +1,8 @@
+**/__pycache__/
+**/.*
+Dockerfile
+README.md
+docker-compose.yml
+**/venv
+**/.venv
+**/runtime_data

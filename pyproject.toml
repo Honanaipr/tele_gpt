@@ -1,0 +1,75 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+[tool.black]
+target-version = ['py39']
+
+[tool.mypy]
+plugins = [
+  "tinydb.mypy_plugin",
+  "pydantic.mypy"
+]
+
+[tool.poetry]
+authors = ["scary <scary@scary.com>"]
+description = ""
+name = "tele-gpt"
+packages = [{include = "tele_gpt"}]
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+aiogram = "3.0.0b7"
+aiogram-dialog = "2.0.0b18"
+deep-translator = "*"
+environ-config = "^23.2.0"
+loguru = "^0.7.0"
+python = "^3.11"
+python-dotenv = "^1.0.0"
+redis = "^4.5.5"
+tortoise-orm = "^0.19.3"
+aerich = "^0.7.1"
+openai = "^0.27.8"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+ipython = "^8.14.0"
+mypy = "*"
+pre-commit = "^3.3.3"
+ruff = "*"
+
+[tool.poetry.scripts]
+start = 'tele-gpt.start:start'
+
+[tool.ruff]
+ignore = [
+  "F401",  # unused-import
+  "E501",  # line-too-long
+  "E712",  # true-false-comparison
+  "ANN101"  # missing-type-self
+]
+select = [
+  "E",  # Pyflakes
+  "F",  # pycodestyle
+  "W",  # pycodestyle
+  "C90",  # mccabe
+  "I",  # isort
+  "N",
+  "UP",  # ?
+  "ANN",  # ?
+  "TCH"
+]
+
+[tool.ruff.flake8-annotations]
+# Whether to allow the omission of a return type hint for __init__ if at least one argument is annotated.
+allow-star-arg-any = true
+mypy-init-return = true
+# Whether to suppress ANN401 for dynamically typed *args and **kwargs arguments.
+suppress-none-returning = true
+
+[tool.ruff.flake8-type-checking]
+strict = true
+
+[tool.ruff.pydocstyle]
+convention = "google"
