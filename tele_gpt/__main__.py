@@ -8,10 +8,9 @@ from aiogram_dialog import DialogManager, StartMode, setup_dialogs
 from aiogram_dialog.manager.manager import ManagerImpl
 
 from tele_gpt.db import User, init_db
-from tele_gpt.dialogs import admin_dialog, index_dialog, translate_dialog
+from tele_gpt.dialogs import admin_dialog, index_dialog
 from tele_gpt.loader import bot, dp
 from tele_gpt.routers.admin import admin_router
-from tele_gpt.routers.translate import translation_router
 from tele_gpt.states import MainSG
 from tele_gpt.ui import configure
 from tele_gpt.utils import InterceptHandler, get_placeholder_image_url, is_admin
